@@ -85,7 +85,7 @@ def _validate(data: dict) -> None:
 
 def classify_system(
     system_description: str,
-    model: str = "gemini-2.5-flash-lite",
+    model: str = "gemini-3.5-flash-lite",
     max_retries: int = 2,
 ) -> ClassificationResult:
     """
