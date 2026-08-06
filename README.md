@@ -188,7 +188,7 @@ python run_tests.py
 
 ## Live deployment
 
-`<FILL IN — Streamlit Community Cloud or Hugging Face Spaces link>`
+**[ai-risk-classifier.streamlit.app](https://ai-risk-classifier.streamlit.app/)**
 
 ## Demo video
 
