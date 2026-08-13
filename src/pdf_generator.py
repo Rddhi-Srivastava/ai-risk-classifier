@@ -37,7 +37,7 @@ TIER_COLORS = {
 }
 
 TIER_LABELS = {
-    "prohibited": "PROHIBITED \u2014 Unacceptable Risk",
+    "prohibited": "PROHIBITED - Unacceptable Risk",
     "high-risk": "HIGH-RISK",
     "limited-risk": "LIMITED-RISK",
     "minimal-risk": "MINIMAL-RISK",
@@ -68,7 +68,7 @@ def _draw_header_and_footer(canvas, doc, result):
     canvas.setFont("Helvetica", 9.5)
     canvas.setFillColor(colors.HexColor("#B8C4CE"))
     canvas.drawString(
-        0.6 * inch, PAGE_H - 0.78 * inch, "EU AI Act \u2014 First-Pass Compliance Triage"
+        0.6 * inch, PAGE_H - 0.78 * inch, "EU AI Act - First-Pass Compliance Triage"
     )
 
     # Date, right-aligned
@@ -86,7 +86,7 @@ def _draw_header_and_footer(canvas, doc, result):
     canvas.setFont("Helvetica", 7.5)
     canvas.setFillColor(SLATE)
     canvas.drawString(
-        0.6 * inch, 0.4 * inch, "AI System Risk & Compliance Classifier \u2014 portfolio project"
+        0.6 * inch, 0.4 * inch, "AI System Risk & Compliance Classifier - portfolio project"
     )
     canvas.drawRightString(PAGE_W - 0.6 * inch, 0.4 * inch, "Page 1 of 1")
 
@@ -172,7 +172,7 @@ def generate_risk_card(result: ClassificationResult) -> bytes:
 
     # Tier badge, left cell colored; right cell holds confidence/borderline meta
     borderline_text = (
-        "\u26a0 Borderline \u2014 recommend human review" if result.borderline else "\u2014"
+        "\u26a0 Borderline - recommend human review" if result.borderline else "-"
     )
     badge_table = Table(
         [

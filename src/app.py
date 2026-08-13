@@ -29,7 +29,7 @@ TIER_COLORS = {
 }
 
 TIER_LABELS = {
-    "prohibited": "PROHIBITED \u2014 Unacceptable Risk",
+    "prohibited": "PROHIBITED - Unacceptable Risk",
     "high-risk": "HIGH-RISK",
     "limited-risk": "LIMITED-RISK",
     "minimal-risk": "MINIMAL-RISK",
@@ -44,7 +44,7 @@ EXAMPLES = [
 
 st.title("\u2696\ufe0f AI System Risk & Compliance Classifier")
 st.caption(
-    "First-pass EU AI Act risk-tier triage. **Not legal advice** \u2014 a fast, "
+    "First-pass EU AI Act risk-tier triage. **Not legal advice** - a fast, "
     "structured starting point for compliance officers, PMs, and engineers."
 )
 

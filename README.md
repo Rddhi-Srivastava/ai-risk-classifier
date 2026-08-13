@@ -1,8 +1,8 @@
 # AI System Risk & Compliance Classifier
 
 A first-pass triage tool for classifying AI systems under the EU AI Act's
-four risk tiers — **prohibited**, **high-risk**, **limited-risk**, or
-**minimal-risk** — with a generated one-page "Risk Card" PDF summarizing the
+four risk tiers - **prohibited**, **high-risk**, **limited-risk**, or
+**minimal-risk** - with a generated one-page "Risk Card" PDF summarizing the
 classification, reasoning, and required documentation.
 
 **This tool is not legal advice.** It is a fast, structured starting point
@@ -15,14 +15,14 @@ triage an AI system before involving qualified legal counsel. See
 ## Business problem
 
 Companies deploying AI in the EU must classify each system under the EU AI
-Act's risk tiers, because obligations differ sharply by tier — a
+Act's risk tiers, because obligations differ sharply by tier - a
 high-risk system requires a full conformity assessment, technical
 documentation, and registration in an EU database; a minimal-risk system
 requires nothing. Most teams don't have someone who understands both the
 legal text and the technical system well enough to classify quickly and
 correctly. Getting it wrong means either over-compliance (wasted
 engineering and legal effort) or under-compliance (real legal and
-financial risk — fines up to €35M or 7% of global turnover for the most
+financial risk - fines up to €35M or 7% of global turnover for the most
 serious violations).
 
 ## Target users
@@ -34,7 +34,7 @@ advisory firms (e.g. KPMG) and policy-adjacent research organizations
 
 ## Assumptions & scope
 
-- **First-pass triage only, not legal advice** — stated explicitly here
+- **First-pass triage only, not legal advice** - stated explicitly here
   and in the tool's own PDF output.
 - Covers Annex III high-risk categories, Article 5 prohibited practices,
   and Article 50 transparency obligations.
@@ -44,7 +44,7 @@ advisory firms (e.g. KPMG) and policy-adjacent research organizations
 - Reflects Regulation (EU) 2024/1689 as currently in force. A "Digital
   Omnibus on AI" simplification package reached provisional political
   agreement in May 2026 but was not yet formally adopted as of this
-  writing — see [eur-lex.europa.eu](https://eur-lex.europa.eu) for the
+  writing - see [eur-lex.europa.eu](https://eur-lex.europa.eu) for the
   authoritative, up-to-date text.
 
 ## Tech stack
@@ -61,13 +61,13 @@ User description (Streamlit text input)
         │
         ▼
 Prompt builder (src/prompt.py)
-  — embeds condensed Annex III / Article 5 / Article 50 cheat-sheet
-  — embeds 6 few-shot examples covering all 4 tiers + edge cases
+  - embeds condensed Annex III / Article 5 / Article 50 cheat-sheet
+  - embeds 6 few-shot examples covering all 4 tiers + edge cases
         │
         ▼
 Gemini API call (src/classifier.py)
-  — low temperature (0.1) for repeatable classification
-  — strict JSON schema, validated + retried on parse failure
+  - low temperature (0.1) for repeatable classification
+  - strict JSON schema, validated + retried on parse failure
         │
         ▼
 Structured result: tier, confidence, article/annex, reasoning,
@@ -84,7 +84,7 @@ recruiters."
 
 **Output:**
 - **Tier:** High-risk
-- **Article/Annex:** Annex III(4) — Employment, recruitment and selection
+- **Article/Annex:** Annex III(4) - Employment, recruitment and selection
 - **Reasoning:** CV screening and candidate ranking falls under Annex III
   point 4, which covers AI used to screen or filter job applications and
   evaluate candidates. This materially influences hiring outcomes.
@@ -116,7 +116,7 @@ every case through the live classifier and writes a scored report to
 
 **Result: `<FILL IN AFTER RUNNING tests/run_tests.py>`**
 
-<!-- e.g. "14/16 correct (88%). 2 borderline cases documented — see
+<!-- e.g. "14/16 correct (88%). 2 borderline cases documented - see
 tests/accuracy_report.md for full reasoning on every case, including
 misses." -->
 
@@ -128,7 +128,7 @@ misses." -->
   regulators (e.g. financial services supervisors may impose additional
   requirements beyond the AI Act).
 - Depends entirely on the user's description being accurate and complete
-  — omitted context (e.g. "who is affected," "is this workplace or
+  - omitted context (e.g. "who is affected," "is this workplace or
   consumer-facing") can flip the correct tier.
 - English input only; no support yet for document upload or multi-turn
   clarifying questions.
@@ -192,7 +192,7 @@ python run_tests.py
 
 ## Demo video
 
-`<FILL IN — 2-minute screen recording link, running 3 example descriptions
+`<FILL IN - 2-minute screen recording link, running 3 example descriptions
 through the tool and showing the generated Risk Card PDF for each>`
 
 ## Data

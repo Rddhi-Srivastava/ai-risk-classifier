@@ -12,9 +12,9 @@ cheat-sheet reflects the currently binding text.
 """
 
 ANNEX_III_CATEGORIES = """
-ANNEX III — HIGH-RISK USE CASES (a system is high-risk if it falls into one
+ANNEX III - HIGH-RISK USE CASES (a system is high-risk if it falls into one
 of these AND poses a significant risk of harm to health, safety, or
-fundamental rights — Article 6(2)-(3)):
+fundamental rights - Article 6(2)-(3)):
 
 1. Biometrics: remote biometric identification (not for verification-only),
    biometric categorisation of sensitive traits, emotion recognition
@@ -42,7 +42,7 @@ fundamental rights — Article 6(2)-(3)):
 """
 
 ARTICLE_5_PROHIBITED = """
-ARTICLE 5 — PROHIBITED PRACTICES (unacceptable risk, outright banned,
+ARTICLE 5 - PROHIBITED PRACTICES (unacceptable risk, outright banned,
 regardless of safeguards):
 
 (a) Subliminal, manipulative, or deceptive techniques that materially
@@ -66,7 +66,7 @@ regardless of safeguards):
 """
 
 ARTICLE_50_TRANSPARENCY = """
-ARTICLE 50 — TRANSPARENCY OBLIGATIONS (limited-risk tier — disclosure
+ARTICLE 50 - TRANSPARENCY OBLIGATIONS (limited-risk tier - disclosure
 required, but not the full high-risk obligation set):
 
 - Systems intended to interact directly with natural persons (e.g.
