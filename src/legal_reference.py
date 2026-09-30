@@ -6,9 +6,11 @@ Last checked against source: August 2026.
 
 IMPORTANT: This is a deliberately condensed, plain-language summary for a
 first-pass triage tool. It is NOT a substitute for the authentic legal text.
-A "Digital Omnibus on AI" simplification package reached provisional
-political agreement in May 2026 but is not yet formally adopted; this
-cheat-sheet reflects the currently binding text.
+NOTE: The Digital Omnibus on AI (Regulation (EU) 2026/1744) entered into
+force on 27 July 2026. It moves the standalone Annex III high-risk deadline
+to 2 December 2027 and adds a new Article 5 prohibition (AI systems that
+generate non-consensual intimate imagery or child sexual abuse material).
+This cheat-sheet has NOT yet been updated for those amendments.
 """
 
 ANNEX_III_CATEGORIES = """
