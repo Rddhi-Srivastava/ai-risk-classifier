@@ -28,9 +28,7 @@ serious violations).
 ## Target users
 
 Compliance officers, product managers, engineers, and legal teams at
-companies building or buying AI in the EU. Strong fit for AI risk/audit
-advisory firms (e.g. KPMG) and policy-adjacent research organizations
-(e.g. TNO).
+companies building or buying AI in the EU. Relevant to AI risk and audit advisory teams and policy research organisations.
 
 ## Assumptions & scope
 
@@ -41,16 +39,17 @@ advisory firms (e.g. KPMG) and policy-adjacent research organizations
 - Does not cover Annex I product-embedded systems (e.g. AI as a safety
   component in machinery, medical devices, toys) in depth.
 - English input only in this version.
-- Reflects Regulation (EU) 2024/1689 as currently in force. A "Digital
-  Omnibus on AI" simplification package reached provisional political
-  agreement in May 2026 but was not yet formally adopted as of this
-  writing - see [eur-lex.europa.eu](https://eur-lex.europa.eu) for the
-  authoritative, up-to-date text.
+- Based on Regulation (EU) 2024/1689. The Digital Omnibus on AI
+  (Regulation (EU) 2026/1744) entered into force on 27 July 2026: it moves
+  the deadline for standalone Annex III high-risk systems to 2 December 2027
+  and adds a new Article 5 prohibition. This tool's legal reference has not
+  yet been updated for these changes (see Limitations). Check
+  [eur-lex.europa.eu](https://eur-lex.europa.eu) for the authoritative text.
 
 ## Tech stack
 
 - Python 3.10+
-- Google Gemini (`gemini-2.5-flash`, free tier via [AI Studio](https://aistudio.google.com/apikey))
+- Google Gemini (`gemini-3.5-flash-lite`, set in `src/classifier.py`; free tier via [AI Studio](https://aistudio.google.com/apikey))
 - Streamlit (UI)
 - reportlab (PDF generation)
 
@@ -108,14 +107,16 @@ ambiguous cases as `borderline: true` rather than answering confidently.
 
 ## Evaluation & testing
 
-16 hand-written test system descriptions span all four risk tiers, plus
-two deliberately ambiguous edge cases designed to probe over- and
+16 hand-written test system descriptions: 14 spanning all four risk tiers,
+plus 2 deliberately ambiguous edge cases designed to probe over- and
 under-triggering (see `tests/test_cases.py`). `tests/run_tests.py` runs
 every case through the live classifier and writes a scored report to
 `tests/accuracy_report.md`.
 
-**Result: `<FILL IN AFTER RUNNING tests/run_tests.py>`**
+**Result: 14/16 passed** (latest run; full details in `tests/accuracy_report.md`).
 
+- **H1 (CV screening):** not a classification error. The Gemini API returned a temporary 503 "high demand" error during the run. Adding a retry for API errors is the next fix.
+- **B2 (customer-call emotion analysis):** a genuine miss. The model assumed a workplace context and returned "prohibited" instead of flagging the case as borderline. This is exactly the over-triggering this edge case was designed to catch; tightening the prompt is planned.
 <!-- e.g. "14/16 correct (88%). 2 borderline cases documented - see
 tests/accuracy_report.md for full reasoning on every case, including
 misses." -->
@@ -132,8 +133,11 @@ misses." -->
   consumer-facing") can flip the correct tier.
 - English input only; no support yet for document upload or multi-turn
   clarifying questions.
-- Reflects the Act as currently in force; does not track the pending
-  Digital Omnibus simplification package.
+- The legal reference (`src/legal_reference.py`) reflects Regulation (EU)
+  2024/1689 as originally adopted. It does not yet include the Digital
+  Omnibus amendments (in force since 27 July 2026), including the new
+  Article 5 prohibition on AI systems that generate non-consensual intimate
+  imagery or child sexual abuse material. Updating it is the next planned change.
 
 ## Future improvements
 
@@ -167,7 +171,7 @@ ai-risk-classifier/
 ## Running locally
 
 ```bash
-git clone <your-repo-url>
+git clone https://github.com/Rddhi-Srivastava/ai-risk-classifier.git
 cd ai-risk-classifier
 pip install -r requirements.txt
 
@@ -190,10 +194,6 @@ python run_tests.py
 
 **[ai-risk-classifier.streamlit.app](https://ai-risk-classifier.streamlit.app/)**
 
-## Demo video
-
-`<FILL IN - 2-minute screen recording link, running 3 example descriptions
-through the tool and showing the generated Risk Card PDF for each>`
 
 ## Data
 
